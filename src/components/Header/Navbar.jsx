@@ -25,12 +25,12 @@ const navActive = ({isActive}) => {
         <li><a>Item 3</a></li>
       </ul>
     </div>
-    <a className="btn btn-ghost text-xl font-bold">Book Vibe</a>
+    <NavLink><button className="btn btn-ghost text-xl font-bold">Book Vibe</button></NavLink>
   </div>
   <div className="navbar-center hidden lg:flex">
     <ul className="menu menu-horizontal px-1 capitalize gap-2">
       <li><NavLink className={navActive} to='/'>home</NavLink></li>
-      <li><NavLink>listed books</NavLink></li>
+      <li><NavLink className={navActive} to='/books'>listed books</NavLink></li>
       <li><a>pages to read</a></li>
     </ul>
   </div>

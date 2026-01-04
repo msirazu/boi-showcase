@@ -1,3 +1,3 @@
-# Boi Poka - Book Vibe
+# Boi Showcase
 
 Technology Used : React, TailWind CSS

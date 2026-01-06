@@ -1,4 +1,4 @@
-import { useLoaderData } from 'react-router'
+import { useLoaderData } from 'react-router-dom'
 
 const SingleBook = () => {
     const books = useLoaderData();

@@ -1,11 +1,11 @@
-import { Outlet } from 'react-router'
+import { Outlet } from 'react-router-dom'
 import Header from '../components/Header/Header';
-import Footer from '../pages/Footer/Footer';
+import Footer from '../components/Footer/Footer';
 
 const Root = () => {
     return (
         <>
-            <section className='max-w-400 mx-auto'>
+            <section className='max-w-292.5 mx-auto'>
                 <Header />
                 <Outlet />
                 <Footer />

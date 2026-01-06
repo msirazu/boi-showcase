@@ -1,10 +1,10 @@
 @import "tailwindcss";
 @plugin "daisyui";
 
-.work-sans {
+.font-work {
     font-family: "Work Sans", sans-serif;
 }
 
-.playfair-display {
+.font-play {
     font-family: "Playfair Display", serif; 
 }

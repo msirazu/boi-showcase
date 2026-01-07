@@ -23,7 +23,7 @@ const navActive = ({isActive}) => {
   <div className="navbar-center hidden lg:flex">
     <ul className="menu menu-horizontal px-1 capitalize gap-2">
       <li><NavLink className={navActive} to='/'>home</NavLink></li>
-      <li><NavLink className={navActive} to='/books'>listed books</NavLink></li>
+      <li><NavLink className={navActive} to='/'>listed books</NavLink></li>
       <li><a>pages to read</a></li>
     </ul>
   </div>

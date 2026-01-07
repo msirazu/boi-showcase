@@ -12,7 +12,11 @@ const router = createBrowserRouter([
         {index: true, element: <Home />},
         {path: 'about', element: <About />},
         {path: '*', element: <NotFound />},
-        {path: 'books-details/:id', element: <BookDetails />}
+        {path: 'book-details/:id', element: <BookDetails />, loader: async() => {
+            const booksRes = await fetch('/JSON/booksData.json');
+            const booksData = await booksRes.json();
+            return booksData;
+        }}
     ]}
 ]);
 

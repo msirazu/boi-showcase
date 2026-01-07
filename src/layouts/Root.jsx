@@ -6,9 +6,15 @@ const Root = () => {
     return (
         <>
             <section className='max-w-292.5 mx-auto'>
-                <Header />
-                <Outlet />
-                <Footer />
+                <header>
+                    <Header />
+                </header>
+                <main>
+                    <Outlet />
+                </main>
+                <footer>
+                    <Footer />
+                </footer>
             </section>
         </>
     );

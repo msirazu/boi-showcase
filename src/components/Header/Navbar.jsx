@@ -1,9 +1,10 @@
 import { NavLink } from 'react-router-dom'
 
 const Navbar = () => {
-const navActive = ({isActive}) => {
-  return `font-bold border border-green-300 rounded-md ${isActive ? 'text-green-500' : 'text-red-500'}`
-}
+  const links = <>
+    <NavLink to='/'><li><button className='capitalize'>home</button></li></NavLink>
+    <NavLink to='/about'><li><button className='capitalize'>about</button></li></NavLink>
+  </>
     return (
         <div className="navbar bg-base-100 shadow-sm work-sans">
   <div className="navbar-start">
@@ -14,17 +15,16 @@ const navActive = ({isActive}) => {
       <ul
         tabIndex="-1"
         className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
-        <li><a>Item 1</a></li>
-        <li><a>Item 3</a></li>
+        {links}
       </ul>
     </div>
     <NavLink><button className="btn btn-ghost text-xl font-bold">Book Vibe</button></NavLink>
   </div>
   <div className="navbar-center hidden lg:flex">
     <ul className="menu menu-horizontal px-1 capitalize gap-2">
-      <li><NavLink className={navActive} to='/'>home</NavLink></li>
-      <li><NavLink className={navActive} to='/'>listed books</NavLink></li>
-      <li><a>pages to read</a></li>
+      <li><NavLink to='/'>home</NavLink></li>
+      <li><NavLink to='/'>listed books</NavLink></li>
+      <li><NavLink to='/'>pages to read</NavLink></li>
     </ul>
   </div>
   <div className="navbar-end gap-2">

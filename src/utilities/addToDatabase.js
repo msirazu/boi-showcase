@@ -1,3 +1,5 @@
+import { sweetModalOne, sweetModalTwo } from "../modals/SweetAlert";
+
 const getFromLocalStorage = () => {
     const storedBookSTR = localStorage.getItem('readList');
     if (storedBookSTR) {
@@ -11,7 +13,7 @@ const getFromLocalStorage = () => {
 const addToLocalStorageDatabase = (id) => {
     const storedBookData = getFromLocalStorage();
     if (storedBookData.includes(id)) {
-        alert('book already added in read list')
+        sweetModalOne();
     } else {
         storedBookData.push(id);
         const bData = JSON.stringify(storedBookData);
@@ -32,7 +34,7 @@ const getWishListFromLocalStorage = () => {
 const addToLocalStorageWishList = (id) => {
     const wishListData = getWishListFromLocalStorage();
     if (wishListData.includes(id)) {
-        alert('book already added on wish list')
+        sweetModalTwo();
     } else {
         wishListData.push(id);
         const wishBook = JSON.stringify(wishListData);

@@ -7,7 +7,6 @@ const BookDetails = () => {
     const { id } = useParams();
     const book = booksData.find(b => b.bookId === Number(id));
     const { bookName, author, tags, category, publisher, rating, review, totalPages, yearOfPublishing, image } = book;
-
     const handleReadList = (id) => {
         addToLocalStorageDatabase(id);
     }

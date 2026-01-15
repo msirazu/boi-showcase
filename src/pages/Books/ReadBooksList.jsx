@@ -4,14 +4,14 @@ const ReadBooksList = ({ book }) => {
     const { bookName, author, tags, category, publisher, rating, bookId, totalPages, yearOfPublishing, image } = book;
     return (
         <>
-            <section className="flex gap-10 border border-gray-300 p-5 rounded-lg my-4">
-                <div className="bg-gray-300 w-[25%] flex justify-center items-center p-10 rounded-lg">
+            <section className="flex flex-col lg:flex-row md:flex-row gap-10 border border-gray-300 p-5 rounded-lg m-4 lg:m-0">
+                <div className="bg-gray-300 lg:w-[25%] flex justify-center items-center p-10 rounded-lg">
                     <img className="w-20 h-35" src={image}/>
                 </div>
-                <div className="w-[75%]">
-                    <h2 className="font-play font-bold text-2xl mb-2">{bookName}</h2>
+                <div className="lg:w-[75%]">
+                    <h2 className="font-play font-bold text-2xl my-2">{bookName}</h2>
                     <h5>By: {author}</h5>
-                    <div className="flex gap-10 my-2">
+                    <div className="flex-col lg:flex gap-10 my-2">
                         <div>
                             <p>{`Tag: #${tags[0]} #${tags[1]}`}</p>
                         </div>
@@ -19,7 +19,7 @@ const ReadBooksList = ({ book }) => {
                             <p>Year of Publishing: {yearOfPublishing}</p>
                         </div>
                     </div>
-                    <div className="flex gap-10">
+                    <div className="flex-col lg:flex gap-10">
                         <div>
                             <p>Publisher: {publisher}</p>
                         </div>
@@ -28,7 +28,7 @@ const ReadBooksList = ({ book }) => {
                         </div>
                     </div>
                     <hr className="border-dashed border-gray-400 my-4"></hr>
-                    <div className="flex gap-10 items-center">
+                    <div className="flex flex-wrap lg:gap-10 gap-2 items-center">
                         <div className="bg-[#E0EEFF] py-2 px-5 rounded-full">
                             <h6>Category: {category}</h6>
                         </div>

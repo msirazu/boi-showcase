@@ -19,11 +19,11 @@ const BookDetails = () => {
         <>
             <section className="m-5 lg:mx-0">
                 <div className="lg:flex gap-10 max-w-292.5">
-                    <div className="bg-gray-200 w-143 rounded-lg flex justify-center items-center">
-                        <img className="max-w-70 max-h-110" src={image}/>
+                    <div className="bg-gray-200 lg:w-143 rounded-lg flex justify-center items-center">
+                        <img className="max-w-70 max-h-110 py-5 lg:py-0" src={image}/>
                     </div>
-                    <div className="w-150">
-                        <h1 className="font-bold font-play text-3xl sm:mt-5">{bookName}</h1>
+                    <div className="lg:w-150">
+                        <h1 className="font-bold font-play text-3xl mt-5 lg:mt-0">{bookName}</h1>
                         <h6 className="mt-3">By: {author}</h6>
                         <hr className="border-dashed border-gray-400 my-5"></hr>
                         <h5>Category: {category}</h5>
@@ -37,7 +37,7 @@ const BookDetails = () => {
                         <p className="my-2">Publisher: {publisher}</p>
                         <p>Year of Publishing: {yearOfPublishing}</p>
                         <p className="my-2">Rating: {rating}</p>
-                        <div className="flex gap-5">
+                        <div className="flex gap-5 pt-2">
                         <button onClick={() => handleReadList(id)} className="btn capitalize">read</button>
                         <button onClick={() => handleWishList(id)} className="btn btn-primary capitalize">wishlist</button>
                         </div>

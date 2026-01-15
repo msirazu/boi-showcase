@@ -1,10 +1,10 @@
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const HomeBookList = ({ book }) => {
     const { bookName, image, author, tags, category, rating, bookId } = book;
     return (
         <>
-            <NavLink to={`/book-details/${bookId}`}>
+            <Link to={`/book-details/${bookId}`}>
             <div className="border border-gray-300 rounded-lg p-5 cursor-pointer hover:shadow-xl">
                 <div className="flex justify-center bg-gray-100 rounded-lg p-10">
                     <img className="w-30 h-50" src={image}/>
@@ -23,7 +23,7 @@ const HomeBookList = ({ book }) => {
                </div>
                 </div>
             </div>
-            </NavLink>
+            </Link>
         </>
     );
 };

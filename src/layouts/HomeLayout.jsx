@@ -2,10 +2,9 @@ import { Outlet } from 'react-router-dom'
 import Header from '../components/Header/Header';
 import Footer from '../components/Footer/Footer';
 
-const Root = () => {
+const HomeLayout = () => {
     return (
-        <>
-            <section className='max-w-292.5 mx-auto'>
+            <div className='max-w-292.5 mx-auto'>
                 <header>
                     <Header />
                 </header>
@@ -15,9 +14,8 @@ const Root = () => {
                 <footer>
                     <Footer />
                 </footer>
-            </section>
-        </>
+            </div>
     );
 };
 
-export default Root;
+export default HomeLayout;

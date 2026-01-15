@@ -4,11 +4,15 @@ import BookDetails from "../pages/Books/BookDetails";
 import BooksList from "../pages/Books/BooksList";
 import Home from "../pages/Home/Home";
 import NotFound from '../pages/Not Found/NotFound';
-import Root from "./Root";
+import HomeLayout from "../layouts/HomeLayout";
 import { createBrowserRouter } from 'react-router-dom'
+import AuthLayout from "../layouts/AuthLayout";
+import AuthHome from "../pages/Home/AuthHome";
+import Login from "../auth/Login/Login";
+import Register from "../auth/Register/Register";
 
 const router = createBrowserRouter([
-    {path: '/', element: <Root />, HydrateFallback: () => {
+    {path: '/', element: <HomeLayout />, HydrateFallback: () => {
             return <div className="flex justify-center items-center my-5"><LoadingColors /></div>},children: [
         {index: true, element: <Home />},
         {path: 'about', element: <About />},
@@ -23,6 +27,11 @@ const router = createBrowserRouter([
             const booksData = await booksRes.json();
             return booksData;
         }}
+    ]},
+    {path: 'auth', element: <AuthLayout/>, children: [
+        {path: '', element: <AuthHome/>},
+        {path: 'login', element: <Login/>},
+        {path: 'register', element: <Register/>},
     ]}
 ]);
 

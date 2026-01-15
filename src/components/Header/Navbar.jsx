@@ -1,14 +1,21 @@
-import { NavLink } from 'react-router-dom'
+import { use } from 'react';
+import { Link, NavLink } from 'react-router-dom';
+import { AuthContext } from '../../auth/Context/AuthContext';
 
 const Navbar = () => {
+
+  const authData = use(AuthContext);
+
   const links = <>
     <NavLink to='/'><li><button className='capitalize'>home</button></li></NavLink>
     <NavLink to='/listed-books'><li><button className='capitalize'>listed books</button></li></NavLink>
     <NavLink to='/about'><li><button className='capitalize'>about</button></li></NavLink>
   </>
+
   const navActive = ({isActive}) => {
     return `font-bold ${isActive ? 'text-green-500' : 'text-red-500'}`
   }
+
     return (
         <div className="navbar bg-base-100 shadow-sm work-sans">
   <div className="navbar-start">
@@ -32,8 +39,8 @@ const Navbar = () => {
     </ul>
   </div>
   <div className="navbar-end gap-2">
-    <a className="btn capitalize bg-[#14A70B] text-white rounded-lg">sign in</a>
-    <a className="btn capitalize bg-[#4EBECF] text-white rounded-lg">sign up</a>
+    <Link to='/auth/login' className="btn capitalize bg-[#14A70B] text-white rounded-lg">sign in</Link>
+    <Link to='/auth/register' className="btn capitalize bg-[#4EBECF] text-white rounded-lg">sign up</Link>
   </div>
 </div>
     );

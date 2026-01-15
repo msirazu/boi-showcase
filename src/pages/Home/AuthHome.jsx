@@ -1,7 +1,9 @@
+import DesignOne from "../Coming Soon/DesignOne";
+
 const AuthHome = () => {
     return (
-        <div>
-            this is auth home page
+        <div className="min-h-screen flex items-center justify-center">
+            <DesignOne />
         </div>
     );
 };

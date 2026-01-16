@@ -1,7 +1,9 @@
+import DesignOne from "../../pages/ComingSoon/DesignOne";
+
 const Register = () => {
     return (
         <div>
-            register page
+             <DesignOne/>
         </div>
     );
 };

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const DesignOne = () => {
   return (
@@ -36,11 +37,14 @@ const DesignOne = () => {
               <br />
               <span className="text-secondary">SOON</span>
             </div>
+            <div className='btn mt-4'>
+              <Link to='/'>Back to Home</Link>
+            </div>
           </div>
           
           {/* Animated dots */}
           <div className="flex justify-center gap-2 mt-12">
-            {[0, 1, 2].map((i) => (
+            {[0, 1, 2, 3, 4, 5, 6, 7, 8, 9].map((i) => (
               <div
                 key={i}
                 className="w-3 h-3 bg-primary rounded-full animate-bounce"

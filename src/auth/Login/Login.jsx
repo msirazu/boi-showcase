@@ -1,8 +1,11 @@
+import DesignOne from "../../pages/ComingSoon/DesignOne";
+
+
 const Login = () => {
 
     return (
         <div>
-            login page
+            <DesignOne />
         </div>
     );
 };

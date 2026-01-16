@@ -1,4 +1,4 @@
-import DesignOne from "../Coming Soon/DesignOne";
+import DesignOne from "../ComingSoon/DesignOne";
 
 const AuthHome = () => {
     return (

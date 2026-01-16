@@ -3,7 +3,7 @@ import About from "../pages/About/About";
 import BookDetails from "../pages/Books/BookDetails";
 import BooksList from "../pages/Books/BooksList";
 import Home from "../pages/Home/Home";
-import NotFound from '../pages/Not Found/NotFound';
+import NotFound from '../pages/NotFound/NotFound';
 import HomeLayout from "../layouts/HomeLayout";
 import { createBrowserRouter } from 'react-router-dom'
 import AuthLayout from "../layouts/AuthLayout";

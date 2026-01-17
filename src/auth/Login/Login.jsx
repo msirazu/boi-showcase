@@ -4,7 +4,6 @@ import { AuthContext } from "../Context/AuthContext";
 const Login = () => {
     const authData = use(AuthContext);
     const { loginUser, setUser, user } = authData;
-    console.log(user);
 
     const handleLogin = (e) => {
         e.preventDefault();

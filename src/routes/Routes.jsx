@@ -5,7 +5,7 @@ import BooksList from "../pages/Books/BooksList";
 import Home from "../pages/Home/Home";
 import NotFound from '../pages/NotFound/NotFound';
 import HomeLayout from "../layouts/HomeLayout";
-import { createBrowserRouter } from 'react-router-dom'
+import { createBrowserRouter } from 'react-router-dom';
 import AuthLayout from "../layouts/AuthLayout";
 import AuthHome from "../pages/Home/AuthHome";
 import Login from "../auth/Login/Login";
@@ -15,10 +15,9 @@ import Dashboard from "../auth/dashboard/Dashboard";
 
 const router = createBrowserRouter([
     {path: '/', element: <HomeLayout />, HydrateFallback: () => {
-            return <div className="flex justify-center items-center my-5"><LoadingColors /></div>},children: [
+            return <div className="flex justify-center items-center my-5"><LoadingColors /></div>}, children: [
         {index: true, element: <Home />},
-        {path: 'about', element: <About />},
-        {path: '*', element: <NotFound />},
+        {path: 'about', element: <About />},      
         {path: 'book-details/:id', element: <BookDetails />, loader: async() => {
             const booksRes = await fetch('/JSON/booksData.json');
             const booksData = await booksRes.json();
@@ -37,7 +36,8 @@ const router = createBrowserRouter([
     ]},
     {path: '/dashboard', element: <PrivateRoute>
         <Dashboard/> 
-    </PrivateRoute>}
+    </PrivateRoute>},
+    {path: '*', element: <NotFound />},
 ]);
 
 export default router;

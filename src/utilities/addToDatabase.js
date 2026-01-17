@@ -42,4 +42,4 @@ const addToLocalStorageWishList = (id) => {
     }
 }
 
-export { addToLocalStorageDatabase, getFromLocalStorage, addToLocalStorageWishList };
+export { addToLocalStorageDatabase, getFromLocalStorage, addToLocalStorageWishList, getWishListFromLocalStorage };

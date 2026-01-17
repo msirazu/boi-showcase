@@ -1,5 +1,6 @@
 import { use } from "react";
 import { AuthContext } from "../Context/AuthContext";
+import { Link } from "react-router-dom";
 
 const Login = () => {
     const authData = use(AuthContext);
@@ -29,6 +30,7 @@ const Login = () => {
               Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quis,
               perferendis.
             </p>
+              <Link className="btn" to='/'>Back to Home</Link>
           </div>
           <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
             <div className="card-body">

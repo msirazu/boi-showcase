@@ -1,5 +1,6 @@
 import { useLoaderData, useParams } from "react-router-dom";
 import { addToLocalStorageDatabase, addToLocalStorageWishList } from "../../utilities/addToDatabase";
+import { toast } from "react-toastify";
 
 const BookDetails = () => {
     
@@ -8,11 +9,21 @@ const BookDetails = () => {
     const book = booksData.find(b => b.bookId === Number(id));
     const { bookName, author, tags, category, publisher, rating, review, totalPages, yearOfPublishing, image } = book;
     const handleReadList = (id) => {
-        addToLocalStorageDatabase(id);
+        const readData = addToLocalStorageDatabase(id);
+        if (!readData) {
+            toast.warning('already in readlist');
+        } else {
+            toast.success('succesfully added to readlist');
+        }
     }
 
     const handleWishList = (id) => {
-        addToLocalStorageWishList(id);
+        const wishData = addToLocalStorageWishList(id);
+        if (!wishData) {
+            toast.warning('already in wishlist');
+        } else {
+            toast.success('succesfully added to wishlist');
+        }
     }
 
     return (

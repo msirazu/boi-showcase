@@ -1,5 +1,3 @@
-import { sweetModalOne, sweetModalTwo } from "../modals/SweetAlert";
-
 const getFromLocalStorage = () => {
     const storedBookSTR = localStorage.getItem('readList');
     if (storedBookSTR) {
@@ -13,11 +11,12 @@ const getFromLocalStorage = () => {
 const addToLocalStorageDatabase = (id) => {
     const storedBookData = getFromLocalStorage();
     if (storedBookData.includes(id)) {
-        sweetModalOne();
+        return false;
     } else {
         storedBookData.push(id);
         const bData = JSON.stringify(storedBookData);
         localStorage.setItem('readList', bData);
+        return true;
     }
 }
 
@@ -34,11 +33,12 @@ const getWishListFromLocalStorage = () => {
 const addToLocalStorageWishList = (id) => {
     const wishListData = getWishListFromLocalStorage();
     if (wishListData.includes(id)) {
-        sweetModalTwo();
+        return false;
     } else {
         wishListData.push(id);
         const wishBook = JSON.stringify(wishListData);
         localStorage.setItem('wishList', wishBook);
+        return true;
     }
 }
 

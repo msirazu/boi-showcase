@@ -11,7 +11,8 @@ import AuthHome from "../pages/Home/AuthHome";
 import Login from "../auth/Login/Login";
 import Register from "../auth/Register/Register";
 import PrivateRoute from "./PrivateRoute";
-import Dashboard from "../auth/dashboard/Dashboard";
+import DashboardLayout from "../layouts/DashboardLayout";
+import DashboardHome from "../auth/dashboard/DashboardHome";
 
 const router = createBrowserRouter([
     {path: '/', element: <HomeLayout />, HydrateFallback: () => {
@@ -34,9 +35,11 @@ const router = createBrowserRouter([
         {path: 'login', element: <Login/>},
         {path: 'register', element: <Register/>},
     ]},
-    {path: '/dashboard', element: <PrivateRoute>
-        <Dashboard/> 
-    </PrivateRoute>},
+    {path: 'dashboard', element: <PrivateRoute>
+        <DashboardLayout/> 
+    </PrivateRoute>, children: [
+        {path: '', element: <DashboardHome/>}
+    ]},
     {path: '*', element: <NotFound />},
 ]);
 

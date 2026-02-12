@@ -1,7 +1,9 @@
 import { NavLink } from "react-router-dom";
+import { MdDelete } from "react-icons/md";
 
-const ReadBooksList = ({ book }) => {
+const ReadBooksList = ({ book, handleDelete }) => {
     const { bookName, author, tags, category, publisher, rating, bookId, totalPages, yearOfPublishing, image } = book;
+
     return (
         <>
             <section className="flex flex-col lg:flex-row md:flex-row gap-10 border border-gray-300 p-5 rounded-lg m-4 lg:m-0">
@@ -40,6 +42,9 @@ const ReadBooksList = ({ book }) => {
                             <button className="btn capitalize bg-[#14A70B] text-white rounded-full">view details</button>
                             </NavLink>
                         </div>
+                        <button onClick={() => handleDelete(bookId)} className="bg-gray-200 p-3 rounded-full hover:bg-gray-400 hover:text-white cursor-pointer">
+                         <MdDelete />
+                        </button>
                     </div>
                 </div>
             </section>

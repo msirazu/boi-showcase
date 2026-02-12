@@ -20,6 +20,13 @@ const addToLocalStorageDatabase = (id) => {
     }
 }
 
+const removeFromLocaStorage = (id) => {
+    const storedReadList = getFromLocalStorage();
+    const updatedReadList = storedReadList.filter(book => Number(book) !== id);
+    localStorage.setItem('readList', JSON.stringify(updatedReadList));
+    return updatedReadList;
+}
+
 const getWishListFromLocalStorage = () => {
     const bookWishList = localStorage.getItem('wishList');
     if (bookWishList) {
@@ -42,4 +49,4 @@ const addToLocalStorageWishList = (id) => {
     }
 }
 
-export { addToLocalStorageDatabase, getFromLocalStorage, addToLocalStorageWishList, getWishListFromLocalStorage };
+export { addToLocalStorageDatabase, getFromLocalStorage, addToLocalStorageWishList, getWishListFromLocalStorage, removeFromLocaStorage };

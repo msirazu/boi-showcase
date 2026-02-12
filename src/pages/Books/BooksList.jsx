@@ -1,11 +1,12 @@
 import { useLoaderData } from 'react-router-dom';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
-import { getFromLocalStorage, getWishListFromLocalStorage } from '../../utilities/addToDatabase';
+import { getFromLocalStorage, getWishListFromLocalStorage, removeFromLocaStorage } from '../../utilities/addToDatabase';
 import ReadBooksList from './ReadBooksList';
 import { useEffect, useState } from 'react';
 import WishBooksList from './WishBooksList';
 import { sortList } from '../../utilities/sortBy';
+import { toast } from 'react-toastify';
 
 const BooksList = () => {
     const [sortType, setSortType] = useState('');
@@ -16,18 +17,29 @@ const BooksList = () => {
     const booksData = useLoaderData();
 
     useEffect(() => {
-        const storedReadList = getFromLocalStorage();
+    const readPromise = async() => {
+    const storedReadList = getFromLocalStorage();
     const convertedStoredReadList = storedReadList.map(b => Number(b))
     const readListData = booksData.filter(b => convertedStoredReadList.includes(b.bookId))
     setReadList(readListData);
+    }
+    readPromise();
     }, [booksData]);
 
     useEffect(() => {
+        const wishPromise = async() => {
         const storedWishList = getWishListFromLocalStorage();
         const convertedStoredWishList = storedWishList.map(b => Number(b));
         const wishListData = booksData.filter(b => convertedStoredWishList.includes(b.bookId));
         setWishList(wishListData);
+        }
+        wishPromise();
     }, [booksData]);
+
+    const handleDelete = (id) => {
+        removeFromLocaStorage(id);
+        toast.success('remove successfully');
+    }
 
     const handleSort = (type) => {
         setSortType(type);
@@ -63,7 +75,7 @@ const BooksList = () => {
 
     <TabPanel>
         <div className='lg:mx-5 xl:mx-0'>
-      {readList.map(book => <ReadBooksList key={book.bookId} book={book}/>)}
+      {readList.map(book => <ReadBooksList key={book.bookId} book={book} handleDelete={handleDelete}/>)}
         </div>
     </TabPanel>
     <TabPanel>

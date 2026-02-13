@@ -1,7 +1,7 @@
 import { useLoaderData } from 'react-router-dom';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
-import { getFromLocalStorage, getWishListFromLocalStorage, removeFromLocaStorage } from '../../utilities/addToDatabase';
+import { getFromLocalStorage, getWishListFromLocalStorage, removeReadFromLocaStorage, removeWishFromLocalStorage } from '../../utilities/addToDatabase';
 import ReadBooksList from './ReadBooksList';
 import { useEffect, useState } from 'react';
 import WishBooksList from './WishBooksList';
@@ -36,8 +36,13 @@ const BooksList = () => {
         wishPromise();
     }, [booksData]);
 
-    const handleDelete = (id) => {
-        removeFromLocaStorage(id);
+    const handleReadDelete = (id) => {
+        removeReadFromLocaStorage(id);
+        toast.success('remove successfully');
+    }
+
+    const handleWishDelete = (id) => {
+        removeWishFromLocalStorage(id);
         toast.success('remove successfully');
     }
 
@@ -75,12 +80,12 @@ const BooksList = () => {
 
     <TabPanel>
         <div className='lg:mx-5 xl:mx-0'>
-      {readList.map(book => <ReadBooksList key={book.bookId} book={book} handleDelete={handleDelete}/>)}
+      {readList.map(book => <ReadBooksList key={book.bookId} book={book} handleReadDelete={handleReadDelete}/>)}
         </div>
     </TabPanel>
     <TabPanel>
       <div className='lg:mx-5 xl:mx-0'>
-        {wishList.map(book => <WishBooksList key={book.bookId} book={book}/>)}
+        {wishList.map(book => <WishBooksList key={book.bookId} book={book} handleWishDelete={handleWishDelete}/>)}
       </div>
     </TabPanel>
   </Tabs>

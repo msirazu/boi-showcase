@@ -20,7 +20,7 @@ const addToLocalStorageDatabase = (id) => {
     }
 }
 
-const removeFromLocaStorage = (id) => {
+const removeReadFromLocaStorage = (id) => {
     const storedReadList = getFromLocalStorage();
     const updatedReadList = storedReadList.filter(book => Number(book) !== id);
     localStorage.setItem('readList', JSON.stringify(updatedReadList));
@@ -49,4 +49,11 @@ const addToLocalStorageWishList = (id) => {
     }
 }
 
-export { addToLocalStorageDatabase, getFromLocalStorage, addToLocalStorageWishList, getWishListFromLocalStorage, removeFromLocaStorage };
+const removeWishFromLocalStorage = (id) => {
+    const storedWishList = getFromLocalStorage();
+    const updatedWishList = storedWishList.filter(book => Number(book) !== id);
+    localStorage.setItem('wishList', JSON.stringify(updatedWishList));
+    return updatedWishList;
+}
+
+export { addToLocalStorageDatabase, getFromLocalStorage, addToLocalStorageWishList, getWishListFromLocalStorage, removeReadFromLocaStorage, removeWishFromLocalStorage};
